@@ -22,15 +22,15 @@
     new_window: true
 - links:
   - name: Facebook
-    link: https://facebook.com/cloudcannon/
+    link: https://www.facebook.com/socio.stat.3/
     new_window: true
     social_icon: Facebook
   - name: Twitter
-    link: https://twitter.com/cloudcannon/
+    link: https://twitter.com/SocioStat/
     social_icon: Twitter
     new_window: true
   - name: YouTube
-    link: https://youtube.com/cloudcannon/
+    link: https://www.youtube.com/channel/UCyyTLbHeZ_a9ZXnKk-a2K9g
     social_icon: YouTube
     new_window: true
   - name: RSS
