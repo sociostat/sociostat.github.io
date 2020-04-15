@@ -109,7 +109,7 @@ class HashTagSearch(metaclass=ABCMeta):
 
 		# figure out valid queryId
 		success = False
-		print(potential_query_ids)
+		#print(potential_query_ids)
 		for potential_id in potential_query_ids:
 			variables = {
 				'tag_name': tag,
@@ -206,7 +206,7 @@ class HashTagSearch(metaclass=ABCMeta):
 				if "queryId" in text:
 					for query_id in re.findall("(?<=queryId:\")[0-9A-Za-z]+", text):
 						query_ids.append(query_id)
-		print(query_ids)
+		#print(query_ids)
 		return query_ids
 
 	@abstractmethod
@@ -234,14 +234,17 @@ class HashTagSearchExample(HashTagSearch):
 				num +=1				
 				res.append(post.processed_text())
 				sentim.append(supporter.sentimentAnalysis(post.processed_text()))
+				flat = [item for sublist in sentim for item in sublist]
 				#print("%i - %s" % (num, post.processed_text()))
-			if num == 10:
+			if num == 100:
 				df['Captions'] = res
 				df['Sentiment'] = sentim
-				print(df)
+				print(df[:numb])
+				print('The average sentiment of users based on 100 posts is: ', str(max(set(flat[:num]), key=flat[:num].count)).split()[0])
 				sys.exit()
 if __name__ == '__main__':
 	log.basicConfig(level=log.INFO)
-	search = input('Hashtag: ')	
+	search = input('Hashtag: ')
+	numb = int(input('How many posts do you want to be scrapped(less than 100): '))	
 	HashTagSearchExample().extract_recent_tag(search)
 
