@@ -236,7 +236,7 @@ class HashTagSearchExample(HashTagSearch):
 				sentim.append(supporter.sentimentAnalysis(post.processed_text()))
 				flat = [item for sublist in sentim for item in sublist]
 				#print("%i - %s" % (num, post.processed_text()))
-			if num == 100:
+			if num == 5:
 				df['Captions'] = res
 				df['Sentiment'] = sentim
 				print(df[:numb])
